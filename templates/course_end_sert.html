@@ -1,0 +1,50 @@
+{% extends 'course_base.html' %}
+
+{% block title %}
+ОТ_Челно-Вершины
+{% endblock %}
+{% block company%}
+ГБОУ СОШ (ОЦ) с.Челно-Вершины.
+Ваши курсы
+{% endblock %}
+
+{% block username %}
+ {{data.name}} {{data.firstname}} {{data.lastname}}
+{% endblock %}
+
+{% block hidden_timer %}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-md-8 themed-grid-col">
+                <div class="pb-3">
+                {{data.theme}}
+                </div>
+                <div class="row">
+                    <div class="col-6 col-sm-4 themed-grid-col">
+                        <a>учебный материал</a>
+                    </div>
+                    <div class="col-6 col-sm-4 themed-grid-col">
+                        <a >пробный тест</a>
+                    </div>
+                    <div class="col-6 col-sm-4 themed-grid-col">
+                        <a>зачет</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 themed-grid-col">
+                <p>Статус - {{data.status}} </p>
+                <p> Количество попыток {{data.count_prob}} из 3</p>
+                {% block sert %}
+                <a href="{{}}"> Скачать удостоверение и протокол </a>
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer-%}
+ГБОУ СОШ (ОЦ) с. Челно-Вершины
+{% endblock -%}

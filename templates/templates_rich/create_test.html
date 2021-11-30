@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Сборщик тестов</title>
+</head>
+<body>
+<header>
+    <h2>Программа для записи тестов в БД</h2>
+</header>
+<div class="container">
+    <div class="nav-item">
+        <form action="{{url_for('create_test')}}" method="post" class="needs-validation" novalidate >
+        <div class="row g-3">
+        <div class="col-sm-6">
+
+        <p>Вопрос </p>
+        <textarea name="qestion" cols="120" rows="10" required></textarea>
+
+        <p><label>Ответ </label> </p>
+        <textarea name="answer" cols="120" rows="3" required></textarea>
+        <input type="radio" name="1" /> Верный ответ
+
+         <p><label>Ответ </label> </p>
+        <textarea name="answer" cols="120" rows="3" required></textarea>
+        <input type="radio" name="2" /> Верный ответ
+
+         <p><label>Ответ </label> </p>
+        <textarea name="answer" cols="120" rows="3" required></textarea>
+        <input type="radio" name="3" /> Верный ответ
+
+         <p><label>Ответ </label> </p>
+        <textarea name="answer" cols="120" rows="3" required></textarea>
+        <input type="radio" name="4" /> Верный ответ
+
+
+        <p><input type="submit" class="w-100 btn btn-primary btn-lg" value="Сохранить" />
+        </div>
+        </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

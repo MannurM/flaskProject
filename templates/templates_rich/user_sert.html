@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Обучение сотрудников
+{% endblock %}
+
+
+{% block body %}
+    <div class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    Удостоверение
+    </div>
+<h2 class="fw-light">
+    {{name}} {{first}} {lastname}}
+</h2>
+<p class="lead my-3">
+прошел обучение по охране труда в ГБОУ СОШ (ОЦ) с. Челно- Вершины </p>
+<p class="lead my-3">
+и успешно сдал экзамен с результатом {{procent}} из 100.
+</p>
+
+
+
+<h2 class="fw-light">
+    Председатель комиссии __________________/_____________________
+</h2>
+
+{{time_rez}}
+{% endblock %}
+
+
+
+{% block company %}
+ГБОУ СОШ (ОЦ) с. Челно-Вершины
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ super() }}
+
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{msg}}</div>
+{% endfor %}
+
+<form action="/login" method="post" class="needs-validation" novalidate>
+    <div class="row g-3">
+        <div class="col-sm-6">
+            <p><label>Фамилия: </label> <input type="text" class="form-control" name="name" value="" required />
+            <p><label>Пароль: </label> <input type="password" class="form-control" name="psw" value="" required />
+            <p><input type="checkbox" name="remainme" /> Запомнить меня
+            <p><input type="submit" class="w-100 btn btn-primary btn-lg" value="Войти" />
+        </div></div>
+</form>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'course_base.html' %}
+
+{% block title %}
+ОТ_Челно-Вершины
+{% endblock %}
+{% block company%}
+    ГБОУ СОШ (ОЦ) с.Челно-Вершины.
+    Ваш курс - {{data.theme}}
+{% endblock %}
+
+{% block hidden_timer %}
+{% endblock %}>
+
+{% block username %}
+{{data.name}} {{data.firstname}} {{data.lastname}}
+{% endblock %}
+
+{{data.edu_test}}
+
+{% block content %}
+    {% block body %}
+    <div class="container-sm" width="100%" height="100%">
+        {% block login %}
+        <a href="https://drive.google.com/file/d/1_DCrK9xFQwfg7zFY1BCjDERlr9x_Qdih/view">
+            <p>Cкачать и распечатать через Google Disk </p>
+        </a>
+        <a href={{url_for('edu_test', user_id=data.user_id)}}>
+            <p>{{data.exsersis}}</p>
+        </a>
+        <a href={{url_for('edu_exz', user_id=data.user_id)}}>
+            <p>{{data.exzamen}}</p>
+        </a>
+        {% endblock %}
+
+        <div class="col-xxl-4">
+        <object
+        data={{ data.edu_mat }}
+        type="application/pdf"
+        width="800"
+        height="678"
+        >
+        <iframe
+          src={{ data.edu_mat }}
+          width="800"
+          height="678"
+          allow="autoplay"
+        >
+        <p>This browser does not support PDF!</p>
+        </iframe>
+
+        </object>
+        </div>
+    </div>
+    {% endblock %}
+{% endblock %}
+
+
+{% block footer %}
+      ГБОУ СОШ (ОЦ) с. Челно-Вершины
+{% endblock %}

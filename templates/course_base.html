@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-item">
+            <a href="/lp" class="nav-link active" aria-current="page">
+                {% block lp %}{% endblock %}
+            </a>
+        </div>
+        <div class="text-end">
+            <a href="/exit" class="btn btn-primary">
+                <li class="btn btn-primary">ВЫЙТИ </li>
+            </a>
+        </div>
+    </div>
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+                <div class="row mb-3">
+                <span class="fs-4">{% block company%}{% endblock %}</span>
+                </div>
+            </a>
+            <div class="text-end">
+            <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
+               href={{url_for('profile', user_id=data.user_id)}}>
+                <ul class="nav nav-pills">
+                    <li class="btn btn-outline-primary me-2">{% block username %}{% endblock %}</li>
+                </ul>
+            </a>
+            </div>
+        </header>
+    </div>
+
+    {% block hidden_timer %}
+    {% endblock %}
+
+    <div class="container">
+    {% block content %}
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-md-8 themed-grid-col">
+                <div class="pb-3">
+                <a href="{{url_for('theme')}}">{{theme}}</a>
+                </div>
+                <div class="row">
+                    <div class="col-6 col-sm-4 themed-grid-col">
+                        <a href={{url_for('edu_mat', user_id=user_id)}}>{{edu_materials}}</a>
+                    </div>
+                    <div class="col-6 col-sm-4 themed-grid-col">
+                        <a href={{url_for('edu_test', user_id=user_id)}}>{{exsersis}}</a>
+                    </div>
+                    <div class="col-6 col-sm-4 themed-grid-col">
+                        <a href={{url_for('edu_exz', user_id=user_id)}}>{{exzamen}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 themed-grid-col">{{status}}
+            {% block sert %}{% endblock %}
+            {% block sert_create %}{% endblock %}
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+    </div>
+<!-- TODO вставить блок выдачи удостоверений и записи в итоговый протокол, выдача выписки из итогового протокола -->
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <p class="text-center text-muted">{% block footer %}{% endblock %} &copy; 2021 Zaydullin Mannur</p>
+        </footer>
+    </div>
+</body>
+</html>

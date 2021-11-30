@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Обучение сотрудников
+{% endblock %}
+
+
+{% block body %}
+Этот сайт создан для обучения сотрудников ГБОУ СОШ (ОЦ) с. Челно-Вершины.<br>
+Для входа необходимо ввести свою фамилию без инициалов с большой буквы,
+пароль  это дата вашего рождения в формате дд.мм.гггг(ддммгггг), например 01.01.1950 или 01011950
+{% endblock %}
+
+{% block login %}
+<div class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <span class="fs-4">Авторизация</span>
+</div>
+
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}">{{msg}}</div>
+{% endfor %}
+
+<form action="{{url_for('index')}}" method="post" class="needs-validation" novalidate>
+    <div class="row g-3">
+        <div class="col-sm-6">
+            <p><input type="text" class="form-control" name="name" value="" required /><label>Фамилия </label>
+            <p><input type="password" class="form-control" name="psw" value="" required /><label>Пароль </label>
+            <p><input type="checkbox" name="remainme" /> Запомнить меня
+            <p><input type="submit" class="w-100 btn btn-primary btn-lg" value="Войти" />
+        </div>
+    </div>
+</form>
+{% endblock %}
+
+{% block company %}
+Обучение сотрудников ГБОУ СОШ (ОЦ) с. Челно-Вершины
+{% endblock %}
+
+{% block footer %}
+      ГБОУ СОШ (ОЦ) с. Челно-Вершины
+{% endblock  %}
+
+
+

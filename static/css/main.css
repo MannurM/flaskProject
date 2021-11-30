@@ -1,0 +1,75 @@
+.themed-grid-col {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  background-color: rgba(86, 61, 124, .15);
+  border: 1px solid rgba(86, 61, 124, .2);
+}
+
+
+.themed-container {
+  padding: .75rem;
+  margin-bottom: 1.5rem;
+  background-color: rgba(0, 123, 255, .15);
+  border: 1px solid rgba(0, 123, 255, .2);
+}
+
+.btn_answer{
+  padding: .75rem;
+  margin-bottom: rem;
+  background-color: rgb(255, 255, 255);
+  border: 0px solid rgba(0, 123, 255, .2);
+  width: 50%!important; 
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1;
+  color: #0f0f0f;
+  text-align: left;  
+  vertical-align: middle;
+  
+  
+}
+
+.btn_answer_vos{
+  padding: .75rem;
+  margin-bottom: rem;
+  background-color: rgba(255, 0, 0, 0.15);
+  border: 1px solid rgba(0, 123, 255, .2);
+  width: 50%!important; 
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1;
+  color: #0f0f0f;
+  text-align: left;  
+  vertical-align: middle;
+  
+}
+
+.btn_answer_just{
+  padding: .75rem;
+  margin-bottom: rem;
+  background-color: rgba(0, 255, 13, 0.15);
+  border: 1px solid rgba(0, 123, 13, .2);
+  width: 50%!important; 
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1;
+  color: #0f0f0f;
+  text-align: left;  
+  vertical-align: middle;
+  
+}
+
+.btn_answer_just_vos{
+  padding: .75rem;
+  margin-bottom: rem;
+  background-color: rgba(0, 255, 13, 0.15);
+  border: 1px solid rgba(0, 123, 13, .2);
+  width: 50%!important; 
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1;
+  color: #0f0f0f;
+  text-align: left;  
+  vertical-align: middle;
+  
+}

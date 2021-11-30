@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Обучение сотрудников
+{% endblock %}
+
+{% block lp %}{% endblock %}
+
+{% block content %}
+{% block body %}
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{cat}}" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">{{msg}}</div>
+{% endfor %}
+
+<form action="/register" method="post" class="needs-validation" novalidate>
+    <div class="row g-3">
+        <div class="col-sm-6">
+            <p><input type="text" class="form-control"name="name" value="" placeholder="Фамилия" required />
+            <p><input type="text" class="form-control"name="firstname" value="" placeholder="Имя" required />
+            <p><input type="text" class="form-control"name="lastname" value="" placeholder="Отчество" /></p>
+            <h4 class="mb-3">Дата рождения</h4>
+            <input class="form-control" type="date" name="dateborn" placeholder="дата рождения"  />
+        </div>
+        <div class="col-sm-6">
+            <p><input type="text" class="form-control" name="name_organization" placeholder="Организация" value="" required>
+            <p><input type="text" class="form-control" name="position" placeholder="Должность" value="" required>
+            <p><input class="form-control" type="text" name="email" value="" placeholder="Email" required />
+
+            <h4 class="mb-3">Отметьте вашу роль</h4>
+            <p><input type="radio" class="form-check-input" name="role" checked/> обучающийся
+            <input type="radio" class="form-check-input" name="role" /> организатор обучения
+            <input type="radio" class="form-check-input" name="role" /> экзаменатор</p>
+        </div>
+    </div>
+    <hr class="my-4">
+    <div class="row g-3">
+        <div class="col-sm-6">
+            <p><input class="form-control" type="password" name="psw" value="" placeholder="Введите пароль" required />
+            <p><input class="form-control" type="password" name="psw2" value="" placeholder="Повторите пароль" required />
+        </div>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-sm-6">
+            <input class="w-100 btn btn-primary btn-lg" type="submit" value="Регистрация" />
+        </div>
+    </div>
+</form>
+{% endblock %}
+{% endblock %}
+
+{% block company %}
+Регистрация
+{% endblock %}
