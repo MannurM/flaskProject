@@ -5,7 +5,6 @@
 {% endblock %}
 {% block company%}
 ГБОУ СОШ (ОЦ) с.Челно-Вершины.
-Зачет по курсу - {{data.theme}}
 {% endblock %}
 
 {% block username %}
@@ -15,21 +14,32 @@
 
 {% block content %}
     <div class="container">
-        <div class="">
-            Правильных ответов - {{ data.sum_just }} из 5
-            Сделано попыток - {{ data.count_prob }} из 3
-            Статус - {{ data.status }}
+    Ваш курс - {{data.theme}}
+        <div class="col-6 col-sm-4 themed-grid-col">
+            <p>Правильных ответов - {{ data.sum_just }} из 5
+            <p>Сделано попыток - {{ data.count_prob }} из 3
+            <p>Статус - {{ data.status }}
         </div>
+
+    {% if data.count_prob == 3 and data.status == 'Не сдано' %}
+        <div class="col-6 col-sm-4 themed-grid-col">
+            <p> {{ data.message }}</p>
+            <p> Сообщите организатору курсов, что у Вас закончились попытки и вы не смогли сдать! </p>
+        </div>
+    {% elif data.count_prob < 3 and data.status == 'Не сдано' %}
+        <div class="col-6 col-sm-4 themed-grid-col">
+            <p><a href={{url_for('edu_exz', user_id=data.user_id)}}> Повторить тест(нажмите на ссылку!)</a></p>
+            <p><a href={{url_for('courses', user_id=data.user_id)}}> Вернуться на страницу курса </a></p>
+        </div>
+        {% else %}
+            <div class="col-6 col-sm-4 themed-grid-col">
+                 <p>Поздравляю! Вы сдали!</p>
+                 <p><a href={{url_for('courses', user_id=data.user_id)}}> Нажмите для продолжения! </a></p>
+            </div>
+    {% endif %}
+
     </div>
-    <div class="col-6 col-sm-4 themed-grid-col">
-        <a href={{url_for('edu_exz', user_id=data.user_id)}}> Повторить тест(нажмите на ссылку!)</a>
-    </div>
-    <div class="col-6 col-sm-4 themed-grid-col">
-        <a href={{url_for('courses', user_id=data.user_id)}}> Вернуться на страницу курса </a>
-    </div>
-    <div class="col-6 col-sm-4 themed-grid-col">
-        <a href={{url_for('course_end', user_id=data.user_id)}}> Завершить обучение </a>
-    </div>
+
 {% endblock %}
 
 {% block footer-%}

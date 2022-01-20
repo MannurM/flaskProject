@@ -126,3 +126,114 @@
 #         # TODO запись в БД
 #
 #     return render_template('edu_test_1.html', data=data,  temp_dict=temp_dict )
+
+
+
+# import os
+# from flask import Flask, flash, request, redirect, url_for
+# # объясняется ниже
+# from werkzeug.utils import secure_filename
+#
+#
+# # папка для сохранения загруженных файлов
+# UPLOAD_FOLDER = '/path/to/the/uploads'
+# # расширения файлов, которые разрешено загружать
+# ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'docx', 'doc'}
+#
+#
+# # создаем экземпляр приложения
+# app = Flask(__name__)
+# # конфигурируем
+# app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+# app.config['MAX_CONTENT_LENGTH'] = 16 * 1000 * 1000
+#
+# def allowed_file(filename):
+#     """ Функция проверки расширения файла """
+#     return '.' in filename and \
+#            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+#
+#
+# @app.route('/', methods=['GET', 'POST'])
+# def upload_file():
+#     if request.method == 'POST':
+#         # проверим, передается ли в запросе файл
+#         if 'file' not in request.files:
+#             # После перенаправления на страницу загрузки
+#             # покажем сообщение пользователю
+#             flash('Не могу прочитать файл')
+#             return redirect(request.url)
+#         file = request.files['file']
+#         # Если файл не выбран, то браузер может
+#         # отправить пустой файл без имени.
+#         if file.filename == '':
+#             flash('Нет выбранного файла')
+#             return redirect(request.url)
+#         if file and allowed_file(file.filename):
+#             # безопасно извлекаем оригинальное имя файла
+#             filename = secure_filename(file.filename)
+#             # сохраняем файл
+#             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+#             # если все прошло успешно, то перенаправляем
+#             # на функцию-представление `download_file`
+#             # для скачивания файла
+#             return redirect(url_for('download_file', name=filename))
+#     return '''
+#     <!doctype html>
+#     <title>Загрузить новый файл</title>
+#     <h1>Загрузить новый файл</h1>
+#     <form method=post enctype=multipart/form-data>
+#       <input type=file name=file>
+#       <input type=submit value=Upload>
+#     </form>
+#     </html>
+#     '''
+
+# db = get_db()
+# dbase = FDataBase(db)
+# theme, protocol, sertificate = dbase.read_sertificat(user_id)
+
+# # кодирование в  бинарный пдф
+
+# def write_to_file(data, filename):
+#     # Преобразование двоичных данных в нужный формат
+#     with open(filename, 'wb') as file:
+#         file.write(data)
+#     print("Данный из blob сохранены в: ", filename, "\n")
+
+# Конвертация из docx в PDF
+# import sys
+# import os
+# import comtypes.client
+# from docxtpl import DocxTemplate
+#
+# doc = DocxTemplate("шаблон.docx")
+# context = { 'emitent' : 'ООО Ромашка', 'address1' : 'г. Москва, ул. Долгоруковская, д. 0', 'участник': 'ООО Участник', 'адрес_участника': 'г. Москва, ул. Полевая, д. 0', 'director': 'И.И. Иванов'}
+# doc.render(context)
+# doc.save("final.docx")
+#
+# wdFormatPDF = 17
+#
+# in_file = os.path.abspath ("final.docx")
+# out_file = os.path.abspath("final.pdf")
+#
+# word = comtypes.client.CreateObject('Word.Application')
+# doc = word.Documents.Open(in_file)
+# doc.SaveAs(out_file, FileFormat=wdFormatPDF)
+# doc.Close()
+# word.Quit()
+
+
+    # def run(self):
+    #     convert_path(self, path)
+    #     data = create_template_sert(self, prot, sert, theme_in)
+    #     db = get_db()
+    #     dbase = FDataBase(db)
+    #     dbase.create_template_sert(data)
+
+# def save_list_just(self, user_id, list_answer_just):
+#     try:
+#         # сделать отдельную функцию для создания базы данных со всеми таблицами
+#         laj = str(list_answer_just)
+#         self.__cur.execute("INSERT INTO a_just (id, laj) VALUES(?, ?)", (user_id, laj))
+#     except sqlite3.Error as e:
+#         print("Ошибка записи данных в БД(save_list_just) " + str(e))
